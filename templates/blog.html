@@ -1,0 +1,109 @@
+
+<style>
+  /* unvisited link */
+  a:link, a:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: green;
+    color: white;
+  }
+  
+    * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f1f1f1;
+      }
+      
+      /* Header/Blog Title */
+      .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
+      }
+      
+      /* Create two unequal columns that floats next to each other */
+      /* Left column */
+      .leftcolumn {
+        float: left;
+        width: 75%;
+      }
+      
+      /* Right column */
+      .rightcolumn {
+        float: left;
+        width: 25%;
+        padding-left: 20px;
+      }
+      
+      /* Fake image */
+      .fakeimg {
+        background-color: #aaa;
+        width: 100%;
+        padding: 20px;
+      }
+      
+      /* Add a card effect for articles */
+      .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Footer */
+      .footer {
+        padding: 20px;
+        text-align: center;
+        background: #ddd;
+        margin-top: 20px;
+      }
+      
+      /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 800px) {
+        .leftcolumn, .rightcolumn {
+          width: 100%;
+          padding: 0;
+        }
+      }
+    </style>
+<body>
+<h1>hello {{request.user}}</h1>
+<hr>
+<h3>Blogs</h3>
+<hr>
+{% for iteblog in item %}
+<h2>{{iteblog.blog_name}}</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+    <img src="{{iteblog.img.url}}" width="80px" height="80px" style="border-radius: 50%;" >
+      <h2>{{iteblog.title}}</h2>
+      <h5>{{iteblog.date}}</h5>
+<p>{{iteblog.discribtion}}</p>
+<a href="{% url "delete_blog" iteblog.id %}">delete the blog</a>
+<a href="{% url "update" iteblog.id %}">update the blog</a>
+<a href="{% url "blogswrite"%}">add new blog</a>
+    </div>
+    {% endfor%}
+    <p><a href="{% url "logout" %}">logout</a></p>

@@ -1,0 +1,127 @@
+<h2>mangesystem to check the degree for students</h2>
+
+<style>
+
+
+    .card {
+    
+      box-shadow: 10px 4px 8px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      background-color:blue;
+      width:300px;
+      
+      border-radius: 25px;
+    }
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    
+    }
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    
+    .container {
+    
+      padding: 2px 16px;
+    }
+    
+    </style>
+    </head>
+    <body>
+    
+
+    <form method="GET" action="">
+      {{search.form}}
+ 
+      <b>
+       
+    
+        <hr>
+        <div class="card" id="card">
+           
+           <div class="container">
+             {% for items in  item %}
+             <h4><b>hello {{items.firstname}} {{items.lastname}}</b></h4>
+             <b>
+               <p>youre degree is :{{items.degree}}</p>
+               <p> the class level is : {{items.class_level}}</p>
+               <p> the class card is : {{items.card}}</p> 
+               <a href="{% url "delete" items.id %}">delete</a>
+              
+             {% endfor %}
+             <input type="submit" value="Search" id="btn" />
+      </div>
+     
+    </div>
+    
+    </form>
+    
+    
+    
+    
+    
+    
+    </body>
+    <script>
+      window.document.title=addEventListener("load",()=>window.document.title='login form')
+      window.document.title=addEventListener("blur",function(){
+        window.document.title='com back😥'
+    })
+    
+    window.document.title=addEventListener("focus",()=>window.document.title=`wellcome back '😊'`) 
+    
+    
+    
+    </script>
+    </html>
